@@ -1,0 +1,40 @@
+import { useEffect, useState } from 'react';
+import { getTarotDeck } from './services/fetch-utils';
+import TarotDeck from './TarotDeck';
+
+import './App.css';
+
+function TarotPage() {
+  const [tarotDeck, setTarotDeck] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const perPage = 18;
+
+  useEffect(() => {
+    async function fetch() {
+      const from = page * perPage - perPage;
+      const to = page * perPage;
+      const cards = await getTarotDeck(from, to);
+
+      setTarotDeck(cards);
+    }
+    fetch();
+  }, [page]);
+
+  return (
+    <>
+      <h2>Current Page {page}</h2>
+      <div className="buttons">
+        <button disabled={page <= 0} onClick={() => setPage(page - 1)}>
+          Previous Page
+        </button>
+        <button disabled={page >= 5} onClick={() => setPage(page + 1)}>
+          Next Page
+        </button>
+      </div>
+      <TarotDeck tarotDeck={tarotDeck} />
+    </>
+  );
+}
+
+export default TarotPage;
