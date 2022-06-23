@@ -11,7 +11,7 @@ function App() {
         <ul>
           <li>
             <NavLink exact activeClassName="active-link" to="/">
-              List Page
+              Home
             </NavLink>
           </li>
         </ul>

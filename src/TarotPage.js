@@ -8,7 +8,7 @@ function TarotPage() {
   const [tarotDeck, setTarotDeck] = useState([]);
   const [page, setPage] = useState(1);
 
-  const perPage = 40;
+  const perPage = 18;
 
   useEffect(() => {
     async function fetch() {
