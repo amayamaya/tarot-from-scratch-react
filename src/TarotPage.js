@@ -4,7 +4,7 @@ import TarotDeck from './TarotDeck';
 
 import './App.css';
 
-function App() {
+function TarotPage() {
   const [tarotDeck, setTarotDeck] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default TarotPage;

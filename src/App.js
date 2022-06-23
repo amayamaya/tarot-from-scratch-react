@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
+import TarotPage from './TarotPage';
+import TarotDetails from './TarotDetails';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload this rad app.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <ul>
+          <li>
+            <NavLink exact activeClassName="active-link" to="/">
+              List Page
+            </NavLink>
+          </li>
+        </ul>
+        <Switch>
+          <Route exact path="/">
+            <TarotPage />
+          </Route>
+          <Route exact path="/tarot/:id">
+            <TarotDetails />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
