@@ -5,7 +5,7 @@ export default function TarotCard({ card }) {
   return (
     <Link to={`/tarot/${card.id}`}>
       <div className="card">
-        <h3>{card.name}</h3>
+        <h2>{card.name}</h2>
         <p>{card.arcana}</p>
         <img src={`/cards/${card.img}`} />
       </div>
